@@ -3,6 +3,27 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 特殊数组 I
+    public bool IsArraySpecial(int[] nums)
+    {
+        bool result = true;
+
+        bool isEvent = (nums[0] & 1) == 0;
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            bool currentIsEvent = (nums[i] & 1) == 0;
+            if (isEvent == currentIsEvent)
+            {
+                return false;
+            }
+            isEvent = !isEvent;
+        }
+
+        return result;
+    }
+    #endregion
+
     public int ScoreOfString(string s)
     {
         int result = 0;

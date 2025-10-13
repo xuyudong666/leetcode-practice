@@ -2,7 +2,7 @@
 
 // string s = "zaz";
 
- LeetCodeSample  leetCodeSample = new LeetCodeSample();
+LeetCodeSample leetCodeSample = new LeetCodeSample();
 
 // void TestSubarraySum(int[] nums, string label, int expected)
 // {
@@ -22,13 +22,27 @@
 // TestMinCosts(new[] { 5, 3, 4, 1, 3, 2 }, "MinCosts 示例1", new[] { 5, 3, 3, 1, 1, 1 });
 // TestMinCosts(new[] { 1, 2, 4, 6, 7 }, "MinCosts 示例2", new[] { 1, 1, 1, 1, 1 });
 
+#region 
+// void TestEvenOr(int[] nums, string label, int expected)
+// {
+//     var res = leetCodeSample.EvenNumberBitwiseORs(nums);
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
+// }
 
-void TestEvenOr(int[] nums, string label, int expected)
-{
-    var res = leetCodeSample.EvenNumberBitwiseORs(nums);
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
-}
+// TestEvenOr(new[] { 1, 2, 3, 4, 5, 6 }, "EvenNumberBitwiseORs 示例1", 6);
+// TestEvenOr(new[] { 7, 9, 11 },          "EvenNumberBitwiseORs 示例2", 0);
+// TestEvenOr(new[] { 1, 8, 16 },          "EvenNumberBitwiseORs 示例3", 24);
+#endregion
 
-TestEvenOr(new[] { 1, 2, 3, 4, 5, 6 }, "EvenNumberBitwiseORs 示例1", 6);
-TestEvenOr(new[] { 7, 9, 11 },          "EvenNumberBitwiseORs 示例2", 0);
-TestEvenOr(new[] { 1, 8, 16 },          "EvenNumberBitwiseORs 示例3", 24);
+
+#region 特殊数组 I
+// void TestIsArraySpecial(int[] nums, string label, bool expected)
+// {
+//     var res = leetCodeSample.IsArraySpecial(nums);
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
+// }
+
+// TestIsArraySpecial(new[] { 1 }, "IsArraySpecial 示例1", true);
+// TestIsArraySpecial(new[] { 2, 1, 4 }, "IsArraySpecial 示例2", true);
+// TestIsArraySpecial(new[] { 4, 3, 1, 6 }, "IsArraySpecial 示例3", false);
+#endregion
