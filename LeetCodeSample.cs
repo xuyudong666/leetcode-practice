@@ -48,6 +48,66 @@ public class LeetCodeSample
         return count;
     }
     #endregion
+    
+    #region 使所有元素都可以被 3 整除的最少操作数
+    public int MinimumOperations(int[] nums)
+    {
+        int result = 0;
+
+        foreach (var num in nums)
+        {
+            if (num % 3 != 0)
+            {
+                result++;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 3701. 计算交替和
+    public int AlternatingSum(int[] nums)
+    {
+        int result = 0;
+        bool isEvent = true;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (isEvent)
+            {
+                result += nums[i];
+            }
+            else
+            {
+                result -= nums[i];
+            }
+            isEvent = !isEvent;
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 特殊数组 I
+    public bool IsArraySpecial(int[] nums)
+    {
+        bool result = true;
+
+        bool isEvent = (nums[0] & 1) == 0;
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            bool currentIsEvent = (nums[i] & 1) == 0;
+            if (isEvent == currentIsEvent)
+            {
+                return false;
+            }
+            isEvent = !isEvent;
+        }
+
+        return result;
+    }
+    #endregion
 
     public int ScoreOfString(string s)
     {
