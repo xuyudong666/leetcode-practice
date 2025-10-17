@@ -3,6 +3,52 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 判断一个数是否是2的幂次数
+    public bool IsPowerOfTwo(int n)
+    {
+        if (n < 2)
+            return false;
+
+        return (n & (n - 1)) == 0;
+    }
+    #endregion
+
+    #region 构成整天的下标对数目 I
+    public int CountCompleteDayPairs(int[] hours)
+    {
+        int count = 0;
+
+        for (int i = 1; i < hours.Length; i++)
+        {
+            if ((hours[i - 1] + hours[i]) % 24 == 0)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    #endregion
+
+    #region  优质数对的总数 I
+    public int NumberOfPairs(int[] nums1, int[] nums2, int k)
+    {
+        int count = 0;
+        for (int i = 0; i < nums1.Length; i++)
+        {
+            for (int j = 0; j < nums2.Length; j++)
+            {
+                if (nums1[i] % (nums2[j] * k) == 0)
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+    #endregion
+
     public int ScoreOfString(string s)
     {
         int result = 0;
