@@ -3,6 +3,83 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 将数组按照奇偶性转化
+    public int[] TransformArray(int[] nums)
+    {
+        int evenSum = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if ((nums[i] & 1) == 0)
+            {
+                evenSum++;
+            }
+        }
+
+        int[] result = new int[nums.Length];
+        
+        for (int i = 0; i < nums.Length; i++,evenSum--)
+        {
+            if(evenSum > 0)
+            {
+                result[i] = 0;
+            }
+            else
+            {
+                result[i] = 1;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 替换为数位和以后的最小元素
+
+    public int MinElement(int[] nums)
+    {
+        int result = int.MaxValue;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            result = Math.Min(BitSum(nums[i]), result);
+        }
+
+        return result;
+    }
+    public int BitSum(int num)
+    {
+        int result = 0;
+
+        while (num > 0)
+        {
+            result += num % 10;
+            num /= 10;
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 最小元素和最大元素的最小平均值
+    public double MinimumAverage(int[] nums)
+    {
+        double result = double.MaxValue;
+
+        Array.Sort(nums);
+        int n = nums.Length - 1;
+        int mid = n / 2;
+        for (int i = 0; i <= mid; i++, n--)
+        {
+            double avg = (nums[i] + nums[n]) / 2.0;
+            if (avg < result)
+            {
+                result = avg;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 判断一个数是否是2的幂次数
     public bool IsPowerOfTwo(int n)
     {
@@ -48,7 +125,7 @@ public class LeetCodeSample
         return count;
     }
     #endregion
-    
+
     #region 使所有元素都可以被 3 整除的最少操作数
     public int MinimumOperations(int[] nums)
     {
