@@ -148,17 +148,32 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region K 次乘运算后的最终数组 I
-void TestGetFinalState(int[] nums, int k, int multiplier, string label, int[] expected)
+// void TestGetFinalState(int[] nums, int k, int multiplier, string label, int[] expected)
+// {
+//     var inputStr = string.Join(",", nums);
+//     var res = leetCodeSample.GetFinalState((int[])nums.Clone(), k, multiplier);
+//     bool pass = res.SequenceEqual(expected);
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{inputStr}], k={k}, multiplier={multiplier}");
+//     Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestGetFinalState(new[] { 2, 1, 3, 5, 6 }, 5, 2, "GetFinalState 示例1", new[] { 8, 4, 6, 5, 6 });
+// TestGetFinalState(new[] { 1, 2 }, 3, 4, "GetFinalState 示例2", new[] { 16, 8 });
+#endregion
+
+#region 构成整天的下标对数目 I
+void TestCountCompleteDayPairs(int[] hours, string label, int expected)
 {
-    var inputStr = string.Join(",", nums);
-    var res = leetCodeSample.GetFinalState((int[])nums.Clone(), k, multiplier);
-    bool pass = res.SequenceEqual(expected);
+    var res = leetCodeSample.CountCompleteDayPairs(hours);
+    bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{inputStr}], k={k}, multiplier={multiplier}");
-    Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+    Console.WriteLine($"{label} hours=[{string.Join(",", hours)}]");
+    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestGetFinalState(new[] { 2, 1, 3, 5, 6 }, 5, 2, "GetFinalState 示例1", new[] { 8, 4, 6, 5, 6 });
-TestGetFinalState(new[] { 1, 2 }, 3, 4, "GetFinalState 示例2", new[] { 16, 8 });
+TestCountCompleteDayPairs(new[] { 12, 12, 30, 24, 24 }, "CountCompleteDayPairs 示例1", 2);
+TestCountCompleteDayPairs(new[] { 72, 48, 24, 3 }, "CountCompleteDayPairs 示例2", 3);
 #endregion

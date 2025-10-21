@@ -3,6 +3,26 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region  构成整天的下标对数目 I
+    public int CountCompleteDayPairs(int[] hours)
+    {
+        int count = 0;
+
+        for (int i = 1; i < hours.Length; i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                if ((hours[i] + hours[j]) % 24 == 0)
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+    #endregion
+
     #region K 次乘运算后的最终数组 I
     public int[] GetFinalState(int[] nums, int k, int multiplier)
     {
@@ -124,23 +144,6 @@ public class LeetCodeSample
             return false;
 
         return (n & (n - 1)) == 0;
-    }
-    #endregion
-
-    #region 构成整天的下标对数目 I
-    public int CountCompleteDayPairs(int[] hours)
-    {
-        int count = 0;
-
-        for (int i = 1; i < hours.Length; i++)
-        {
-            if ((hours[i - 1] + hours[i]) % 24 == 0)
-            {
-                count++;
-            }
-        }
-
-        return count;
     }
     #endregion
 
