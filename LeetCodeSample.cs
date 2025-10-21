@@ -3,6 +3,43 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region K 次乘运算后的最终数组 I
+    public int[] GetFinalState(int[] nums, int k, int multiplier)
+    {
+        for (int i = k; i > 0; i--)
+        {
+            int index = 0;
+            int minValue = nums[0];
+            for (int j = 0; j < nums.Length; j++)
+            {
+                if (nums[j] < minValue)
+                {
+                    minValue = nums[j];
+                    index = j;
+                }
+            }
+            nums[index] *= multiplier;
+        }
+
+        return nums;
+    }
+    #endregion
+
+    #region 循环数组中相邻元素的最大差值
+    public int MaxAdjacentDistance(int[] nums)
+    {
+        int result = Math.Max(nums[nums.Length - 1] - nums[0], nums[0] - nums[nums.Length - 1]);
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            result = Math.Max(result, nums[i] - nums[i - 1]);
+            result = Math.Max(result, nums[i - 1] - nums[i]);
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 将数组按照奇偶性转化
     public int[] TransformArray(int[] nums)
     {
@@ -16,10 +53,10 @@ public class LeetCodeSample
         }
 
         int[] result = new int[nums.Length];
-        
-        for (int i = 0; i < nums.Length; i++,evenSum--)
+
+        for (int i = 0; i < nums.Length; i++, evenSum--)
         {
-            if(evenSum > 0)
+            if (evenSum > 0)
             {
                 result[i] = 0;
             }

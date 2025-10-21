@@ -125,12 +125,40 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 
-void TestTransformArray(int[] nums, int[] expected, string label)
+// void TestTransformArray(int[] nums, int[] expected, string label)
+// {
+//     var res = leetCodeSample.TransformArray(nums);
+//     Console.WriteLine($"{label} input=[{string.Join(",", nums)}] -> [{string.Join(",", res)}] 期望=[{string.Join(",", expected)}]");
+// }
+
+// TestTransformArray(new[] { 4, 3, 2, 1 },      new[] { 0, 0, 1, 1 },       "TransformArray 示例1");
+// TestTransformArray(new[] { 1, 5, 1, 4, 2 },   new[] { 0, 0, 1, 1, 1 },    "TransformArray 示例2");
+#endregion
+
+#region 循环数组中相邻元素的最大差值测试
+// void TestMaxAdjacentDistance(int[] nums, string label, int expected)
+// {
+//     var res = leetCodeSample.MaxAdjacentDistance(nums);
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
+// }
+
+// TestMaxAdjacentDistance(new[] { 1, 2, 4 }, "MaxAdjacentDistance 示例1", 3);
+// TestMaxAdjacentDistance(new[] { -5, -10, -5 }, "MaxAdjacentDistance 示例2", 5);
+// TestMaxAdjacentDistance(new[] { -2,-5 }, "MaxAdjacentDistance 示例3", 3);
+#endregion
+
+#region K 次乘运算后的最终数组 I
+void TestGetFinalState(int[] nums, int k, int multiplier, string label, int[] expected)
 {
-    var res = leetCodeSample.TransformArray(nums);
-    Console.WriteLine($"{label} input=[{string.Join(",", nums)}] -> [{string.Join(",", res)}] 期望=[{string.Join(",", expected)}]");
+    var inputStr = string.Join(",", nums);
+    var res = leetCodeSample.GetFinalState((int[])nums.Clone(), k, multiplier);
+    bool pass = res.SequenceEqual(expected);
+    Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+    Console.WriteLine($"{label} nums=[{inputStr}], k={k}, multiplier={multiplier}");
+    Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+    Console.ResetColor();
 }
 
-TestTransformArray(new[] { 4, 3, 2, 1 },      new[] { 0, 0, 1, 1 },       "TransformArray 示例1");
-TestTransformArray(new[] { 1, 5, 1, 4, 2 },   new[] { 0, 0, 1, 1, 1 },    "TransformArray 示例2");
+TestGetFinalState(new[] { 2, 1, 3, 5, 6 }, 5, 2, "GetFinalState 示例1", new[] { 8, 4, 6, 5, 6 });
+TestGetFinalState(new[] { 1, 2 }, 3, 4, "GetFinalState 示例2", new[] { 16, 8 });
 #endregion
