@@ -179,16 +179,32 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 好数字之和
-void TestSumOfGoodNumbers(int[] nums, int k, string label, int expected)
+// void TestSumOfGoodNumbers(int[] nums, int k, string label, int expected)
+// {
+//     var res = leetCodeSample.SumOfGoodNumbers(nums, k);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestSumOfGoodNumbers(new[] { 1, 3, 2, 1, 5, 4 }, 2, "SumOfGoodNumbers 示例1", 12);
+// TestSumOfGoodNumbers(new[] { 2, 1 }, 1, "SumOfGoodNumbers 示例2", 2);
+#endregion
+
+#region 数位和等于下标的最小下标
+void TestSmallestIndex(int[] nums, string label, int expected)
 {
-    var res = leetCodeSample.SumOfGoodNumbers(nums, k);
+    var res = leetCodeSample.SmallestIndex(nums);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestSumOfGoodNumbers(new[] { 1, 3, 2, 1, 5, 4 }, 2, "SumOfGoodNumbers 示例1", 12);
-TestSumOfGoodNumbers(new[] { 2, 1 }, 1, "SumOfGoodNumbers 示例2", 2);
+TestSmallestIndex(new[] { 1, 3, 2 }, "SmallestIndex 示例1", 2);
+TestSmallestIndex(new[] { 1, 10, 11 }, "SmallestIndex 示例2", 1);
+TestSmallestIndex(new[] { 1, 2, 3 }, "SmallestIndex 示例3", -1);
 #endregion

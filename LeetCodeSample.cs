@@ -3,6 +3,32 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 数位和等于下标的最小下标
+    public int SmallestIndex(int[] nums)
+    {
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (DigitSum(nums[i]) == i)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private int DigitSum(int num)
+    {
+        int sum = 0;
+        while (num > 0)
+        {
+            sum += num % 10;
+            num /= 10;
+        }
+
+        return sum;
+    }
+    #endregion
+
     #region 好数字之和
     public int SumOfGoodNumbers(int[] nums, int k)
     {
