@@ -164,16 +164,31 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 构成整天的下标对数目 I
-void TestCountCompleteDayPairs(int[] hours, string label, int expected)
+// void TestCountCompleteDayPairs(int[] hours, string label, int expected)
+// {
+//     var res = leetCodeSample.CountCompleteDayPairs(hours);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} hours=[{string.Join(",", hours)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestCountCompleteDayPairs(new[] { 12, 12, 30, 24, 24 }, "CountCompleteDayPairs 示例1", 2);
+// TestCountCompleteDayPairs(new[] { 72, 48, 24, 3 }, "CountCompleteDayPairs 示例2", 3);
+#endregion
+
+#region 好数字之和
+void TestSumOfGoodNumbers(int[] nums, int k, string label, int expected)
 {
-    var res = leetCodeSample.CountCompleteDayPairs(hours);
+    var res = leetCodeSample.SumOfGoodNumbers(nums, k);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} hours=[{string.Join(",", hours)}]");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestCountCompleteDayPairs(new[] { 12, 12, 30, 24, 24 }, "CountCompleteDayPairs 示例1", 2);
-TestCountCompleteDayPairs(new[] { 72, 48, 24, 3 }, "CountCompleteDayPairs 示例2", 3);
+TestSumOfGoodNumbers(new[] { 1, 3, 2, 1, 5, 4 }, 2, "SumOfGoodNumbers 示例1", 12);
+TestSumOfGoodNumbers(new[] { 2, 1 }, 1, "SumOfGoodNumbers 示例2", 2);
 #endregion

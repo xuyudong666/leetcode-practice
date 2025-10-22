@@ -3,6 +3,25 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 好数字之和
+    public int SumOfGoodNumbers(int[] nums, int k)
+    {
+        int sum = 0;
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int left = i - k;
+            int right = i + k;
+            if ((left < 0 || nums[i] > nums[left]) && (right >= nums.Length || nums[i] > nums[right]))
+            {
+                sum += nums[i];
+            }
+        }
+
+        return sum;
+    }
+    #endregion
+
     #region  构成整天的下标对数目 I
     public int CountCompleteDayPairs(int[] hours)
     {
