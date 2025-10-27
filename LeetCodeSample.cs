@@ -3,6 +3,36 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 出现次数能被 K 整除的元素总和
+    public int SumDivisibleByK(int[] nums, int k)
+    {
+        int sum = 0;
+
+        Dictionary<int, int> frequency = new Dictionary<int, int>();
+        foreach (var num in nums)
+        {
+            if (frequency.ContainsKey(num))
+            {
+                frequency[num]++;
+            }
+            else
+            {
+                frequency[num] = 1;
+            }
+        }
+
+        foreach (var kvp in frequency)
+        {
+            if (kvp.Value % k == 0)
+            {
+                sum += kvp.Key * kvp.Value;
+            }
+        }
+
+        return sum;
+    }
+    #endregion
+
     #region 数位和等于下标的最小下标
     public int SmallestIndex(int[] nums)
     {

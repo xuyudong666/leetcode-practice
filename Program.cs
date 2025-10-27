@@ -194,17 +194,33 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 数位和等于下标的最小下标
-void TestSmallestIndex(int[] nums, string label, int expected)
+// void TestSmallestIndex(int[] nums, string label, int expected)
+// {
+//     var res = leetCodeSample.SmallestIndex(nums);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestSmallestIndex(new[] { 1, 3, 2 }, "SmallestIndex 示例1", 2);
+// TestSmallestIndex(new[] { 1, 10, 11 }, "SmallestIndex 示例2", 1);
+// TestSmallestIndex(new[] { 1, 2, 3 }, "SmallestIndex 示例3", -1);
+#endregion
+
+#region 出现次数能被 K 整除的元素总和
+void TestSumDivisibleByK(int[] nums, int k, string label, int expected)
 {
-    var res = leetCodeSample.SmallestIndex(nums);
+    var res = leetCodeSample.SumDivisibleByK(nums, k);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestSmallestIndex(new[] { 1, 3, 2 }, "SmallestIndex 示例1", 2);
-TestSmallestIndex(new[] { 1, 10, 11 }, "SmallestIndex 示例2", 1);
-TestSmallestIndex(new[] { 1, 2, 3 }, "SmallestIndex 示例3", -1);
+TestSumDivisibleByK(new[] { 1, 2, 2, 3, 3, 3, 3, 4 }, 2, "SumDivisibleByK 示例1", 16);
+TestSumDivisibleByK(new[] { 1, 2, 3, 4, 5 }, 2, "SumDivisibleByK 示例2", 0);
+TestSumDivisibleByK(new[] { 4, 4, 4, 1, 2, 3 }, 3, "SumDivisibleByK 示例3", 12);
 #endregion
