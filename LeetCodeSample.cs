@@ -3,6 +3,28 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+
+    #region 交替组 I
+    public int NumberOfAlternatingGroups(int[] colors)
+    {
+        int sum = 0;
+
+        for (int i = 0; i < colors.Length; i++)
+        {
+            int prevIndex = (i - 1 + colors.Length) % colors.Length;
+            int nextIndex = (i + 1) % colors.Length;
+
+
+            if (colors[i] != colors[prevIndex] && colors[i] != colors[nextIndex])
+            {
+                sum++;
+            }
+        }
+
+        return sum;
+    }
+    #endregion
+
     #region 出现次数能被 K 整除的元素总和
     public int SumDivisibleByK(int[] nums, int k)
     {

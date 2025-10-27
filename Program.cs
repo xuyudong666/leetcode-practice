@@ -210,17 +210,32 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 出现次数能被 K 整除的元素总和
-void TestSumDivisibleByK(int[] nums, int k, string label, int expected)
+// void TestSumDivisibleByK(int[] nums, int k, string label, int expected)
+// {
+//     var res = leetCodeSample.SumDivisibleByK(nums, k);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestSumDivisibleByK(new[] { 1, 2, 2, 3, 3, 3, 3, 4 }, 2, "SumDivisibleByK 示例1", 16);
+// TestSumDivisibleByK(new[] { 1, 2, 3, 4, 5 }, 2, "SumDivisibleByK 示例2", 0);
+// TestSumDivisibleByK(new[] { 4, 4, 4, 1, 2, 3 }, 3, "SumDivisibleByK 示例3", 12);
+#endregion
+
+#region 交替组 I
+void TestNumberOfAlternatingGroups(int[] colors, string label, int expected)
 {
-    var res = leetCodeSample.SumDivisibleByK(nums, k);
+    var res = leetCodeSample.NumberOfAlternatingGroups(colors);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+    Console.WriteLine($"{label} colors=[{string.Join(",", colors)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestSumDivisibleByK(new[] { 1, 2, 2, 3, 3, 3, 3, 4 }, 2, "SumDivisibleByK 示例1", 16);
-TestSumDivisibleByK(new[] { 1, 2, 3, 4, 5 }, 2, "SumDivisibleByK 示例2", 0);
-TestSumDivisibleByK(new[] { 4, 4, 4, 1, 2, 3 }, 3, "SumDivisibleByK 示例3", 12);
+TestNumberOfAlternatingGroups(new[] { 1, 1, 1 }, "NumberOfAlternatingGroups 示例1", 0);
+TestNumberOfAlternatingGroups(new[] { 0, 1, 0, 0, 1 }, "NumberOfAlternatingGroups 示例2", 3);
 #endregion
