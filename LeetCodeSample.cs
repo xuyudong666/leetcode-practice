@@ -4,6 +4,58 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 求出出现两次数字的 XOR 值
+    public int DuplicateNumbersXOR(int[] nums)
+    {
+        int result = 0;
+        Dictionary<int, int> frequency = new Dictionary<int, int>();
+
+        foreach (var num in nums)
+        {
+            if (frequency.ContainsKey(num))
+            {
+                frequency[num]++;
+            }
+            else
+            {
+                frequency[num] = 1;
+            }
+        }
+
+        foreach (var kvp in frequency)
+        {
+            if (kvp.Value == 2)
+            {
+                result ^= kvp.Key;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 构造最小位运算数组 I
+    public int[] MinBitwiseArray(IList<int> nums)
+    {
+        int[] result = new int[nums.Count];
+        Array.Fill(result, -1);
+
+        for (int i = 0; i < nums.Count; i++)
+        {
+            for (int j = 1; j <= nums[i]; j++)
+            {
+                if ((j | (j + 1)) == nums[i])
+                {
+                    result[i] = j;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 交替组 I
     public int NumberOfAlternatingGroups(int[] colors)
     {

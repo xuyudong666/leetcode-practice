@@ -226,16 +226,47 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 交替组 I
-void TestNumberOfAlternatingGroups(int[] colors, string label, int expected)
+// void TestNumberOfAlternatingGroups(int[] colors, string label, int expected)
+// {
+//     var res = leetCodeSample.NumberOfAlternatingGroups(colors);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} colors=[{string.Join(",", colors)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestNumberOfAlternatingGroups(new[] { 1, 1, 1 }, "NumberOfAlternatingGroups 示例1", 0);
+// TestNumberOfAlternatingGroups(new[] { 0, 1, 0, 0, 1 }, "NumberOfAlternatingGroups 示例2", 3);
+#endregion
+
+#region 构造最小位运算数组 I
+// void TestMinBitwiseArray(int[] nums, string label, int[] expected)
+// {
+//     var res = leetCodeSample.MinBitwiseArray(nums);
+//     bool pass = res.SequenceEqual(expected);
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestMinBitwiseArray(new[] { 2, 3, 5, 7 }, "MinBitwiseArray 示例1", new[] { -1, 1, 4, 3 });
+// TestMinBitwiseArray(new[] { 11, 13, 31 }, "MinBitwiseArray 示例2", new[] { 9, 12, 15 });
+#endregion
+
+#region 求出出现两次数字的 XOR 值
+void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
 {
-    var res = leetCodeSample.NumberOfAlternatingGroups(colors);
+    int res = leetCodeSample.DuplicateNumbersXOR(nums);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} colors=[{string.Join(",", colors)}]");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestNumberOfAlternatingGroups(new[] { 1, 1, 1 }, "NumberOfAlternatingGroups 示例1", 0);
-TestNumberOfAlternatingGroups(new[] { 0, 1, 0, 0, 1 }, "NumberOfAlternatingGroups 示例2", 3);
+TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
+TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
+TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
 #endregion
