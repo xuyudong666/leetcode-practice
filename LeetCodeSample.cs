@@ -3,6 +3,30 @@ namespace leetcode;
 
 public class LeetCodeSample
 {
+    #region 链表最大孪生和
+    public int PairSum(ListNode head)
+    {
+        int max = int.MinValue;
+
+        List<int> values = new List<int>();
+
+        ListNode current = head;
+        while (current != null)
+        {
+            values.Add(current.val);
+            current = current.next;
+        }
+
+        int n = values.Count;
+        for (int i = 0; i < n / 2; i++)
+        {
+            int pairSum = values[i] + values[n - 1 - i];
+            max = Math.Max(max, pairSum);
+        }
+
+        return max;
+    }
+    #endregion
 
     #region 求出出现两次数字的 XOR 值
     public int DuplicateNumbersXOR(int[] nums)

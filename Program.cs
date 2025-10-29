@@ -256,17 +256,46 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 求出出现两次数字的 XOR 值
-void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
+// void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
+// {
+//     int res = leetCodeSample.DuplicateNumbersXOR(nums);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
+// TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
+// TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
+#endregion
+
+#region 链表最大孪生和
+ListNode BuildList(int[] values)
 {
-    int res = leetCodeSample.DuplicateNumbersXOR(nums);
+    var dummy = new ListNode(0);
+    var current = dummy;
+    foreach (var value in values)
+    {
+        current.next = new ListNode(value);
+        current = current.next;
+    }
+    return dummy.next!;
+}
+
+void TestPairSum(int[] nums, string label, int expected)
+{
+    var head = BuildList(nums);
+    int res = leetCodeSample.PairSum(head);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+    Console.WriteLine($"{label} head=[{string.Join(",", nums)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
-TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
-TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
+TestPairSum(new[] { 5, 4, 2, 1 }, "PairSum 示例1", 6);
+TestPairSum(new[] { 4, 2, 2, 3 }, "PairSum 示例2", 7);
+TestPairSum(new[] { 1, 100000 }, "PairSum 示例3", 100001);
 #endregion
