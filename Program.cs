@@ -272,30 +272,45 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 链表最大孪生和
-ListNode BuildList(int[] values)
-{
-    var dummy = new ListNode(0);
-    var current = dummy;
-    foreach (var value in values)
-    {
-        current.next = new ListNode(value);
-        current = current.next;
-    }
-    return dummy.next!;
-}
+// ListNode BuildList(int[] values)
+// {
+//     var dummy = new ListNode(0);
+//     var current = dummy;
+//     foreach (var value in values)
+//     {
+//         current.next = new ListNode(value);
+//         current = current.next;
+//     }
+//     return dummy.next!;
+// }
 
-void TestPairSum(int[] nums, string label, int expected)
+// void TestPairSum(int[] nums, string label, int expected)
+// {
+//     var head = BuildList(nums);
+//     int res = leetCodeSample.PairSum(head);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} head=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestPairSum(new[] { 5, 4, 2, 1 }, "PairSum 示例1", 6);
+// TestPairSum(new[] { 4, 2, 2, 3 }, "PairSum 示例2", 7);
+// TestPairSum(new[] { 1, 100000 }, "PairSum 示例3", 100001);
+#endregion
+
+#region 矩阵中的蛇
+void TestFinalPositionOfSnake(int n, string[] commands, string label, int expected)
 {
-    var head = BuildList(nums);
-    int res = leetCodeSample.PairSum(head);
+    int res = leetCodeSample.FinalPositionOfSnake(n, commands);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} head=[{string.Join(",", nums)}]");
+    Console.WriteLine($"{label} n={n}, commands=[{string.Join(",", commands)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestPairSum(new[] { 5, 4, 2, 1 }, "PairSum 示例1", 6);
-TestPairSum(new[] { 4, 2, 2, 3 }, "PairSum 示例2", 7);
-TestPairSum(new[] { 1, 100000 }, "PairSum 示例3", 100001);
+TestFinalPositionOfSnake(2, new[] { "RIGHT", "DOWN" }, "FinalPositionOfSnake 示例1", 3);
+TestFinalPositionOfSnake(3, new[] { "DOWN", "RIGHT", "UP" }, "FinalPositionOfSnake 示例2", 1);
 #endregion

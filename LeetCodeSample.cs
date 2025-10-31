@@ -1,8 +1,63 @@
 
+using System.Runtime.CompilerServices;
+
 namespace leetcode;
 
 public class LeetCodeSample
 {
+
+    #region 矩阵中的蛇
+    public int FinalPositionOfSnake(int n, IList<string> commands)
+    {
+        int x = 0, y = 0;
+
+        foreach (var command in commands)
+        {
+            if (command == "UP" && x > 0)
+            {
+                x--;
+            }
+            else if (command == "DOWN" && x < n - 1)
+            {
+                x++;
+            }
+            else if (command == "LEFT" && y > 0)
+            {
+                y--;
+            }
+            else if (command == "RIGHT" && y < n - 1)
+            {
+                y++;
+            }
+        }
+
+        return y + x * n;
+    }
+    #endregion
+
+    #region 使数组元素互不相同所需的最少操作次数
+    public int MinimumOperations(int[] nums)
+    {
+        int result = 0;
+
+
+        HashSet<int> seen = [];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (seen.Contains(nums[i]))
+            {
+                break;
+            }
+            else
+            {
+                seen.Add(nums[i]);
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 链表最大孪生和
     public int PairSum(ListNode head)
     {
@@ -340,20 +395,20 @@ public class LeetCodeSample
     #endregion
 
     #region 使所有元素都可以被 3 整除的最少操作数
-    public int MinimumOperations(int[] nums)
-    {
-        int result = 0;
+    // public int MinimumOperations(int[] nums)
+    // {
+    //     int result = 0;
 
-        foreach (var num in nums)
-        {
-            if (num % 3 != 0)
-            {
-                result++;
-            }
-        }
+    //     foreach (var num in nums)
+    //     {
+    //         if (num % 3 != 0)
+    //         {
+    //             result++;
+    //         }
+    //     }
 
-        return result;
-    }
+    //     return result;
+    // }
     #endregion
 
     #region 3701. 计算交替和
