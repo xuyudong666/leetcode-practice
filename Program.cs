@@ -301,16 +301,41 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 矩阵中的蛇
-void TestFinalPositionOfSnake(int n, string[] commands, string label, int expected)
+// void TestFinalPositionOfSnake(int n, string[] commands, string label, int expected)
+// {
+//     int res = leetCodeSample.FinalPositionOfSnake(n, commands);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} n={n}, commands=[{string.Join(",", commands)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestFinalPositionOfSnake(2, new[] { "RIGHT", "DOWN" }, "FinalPositionOfSnake 示例1", 3);
+// TestFinalPositionOfSnake(3, new[] { "DOWN", "RIGHT", "UP" }, "FinalPositionOfSnake 示例2", 1);
+#endregion
+
+#region 统计元素和差值为偶数的分区方案
+// void TestCountPartitions(int[] nums, string label, int expected)
+// {
+//     int res = leetCodeSample.CountPartitions(nums);
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
+// }
+
+// TestCountPartitions(new[] { 10, 10, 3, 7, 6 }, "CountPartitions 示例1", 4);
+// TestCountPartitions(new[] { 1, 2, 2 }, "CountPartitions 示例2", 0);
+// TestCountPartitions(new[] { 2, 4, 6, 8 }, "CountPartitions 示例3", 3);
+#endregion
+
+#region 求出出现两次数字的 XOR 值
+void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
 {
-    int res = leetCodeSample.FinalPositionOfSnake(n, commands);
-    bool pass = res == expected;
-    Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} n={n}, commands=[{string.Join(",", commands)}]");
-    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
-    Console.ResetColor();
+    int res = leetCodeSample.DuplicateNumbersXOR(nums);
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
 }
 
-TestFinalPositionOfSnake(2, new[] { "RIGHT", "DOWN" }, "FinalPositionOfSnake 示例1", 3);
-TestFinalPositionOfSnake(3, new[] { "DOWN", "RIGHT", "UP" }, "FinalPositionOfSnake 示例2", 1);
+TestDuplicateNumbersXOR(new[] { 10,18,7,10,18 }, "DuplicateNumbersXOR 示例4", 24);
+TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
+TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
+TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
 #endregion

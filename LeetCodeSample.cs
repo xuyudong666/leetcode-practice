@@ -6,6 +6,77 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 求出出现两次数字的 XOR 值
+    public int DuplicateNumbersXOR(int[] nums)
+    {
+        int result = 0;
+
+        Dictionary<int, int> kv = [];
+
+        foreach (var num in nums)
+        {
+            if (kv.TryGetValue(num, out int value))
+            {
+                kv[num] = ++value;
+            }
+            else
+            {
+                kv[num] = 1;
+            }
+        }
+
+        foreach (var sum in kv)
+        {
+            if (sum.Value == 2)
+            {
+                if (result == 0)
+                {
+                    result = sum.Key;
+                }
+                else
+                {
+                    result ^= sum.Key;
+                }
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region  统计元素和差值为偶数的分区方案
+    public int CountPartitions(int[] nums)
+    {
+        int result = 0;
+        int[] prevsum = new int[nums.Length];
+        prevsum[0] = nums[0];
+        int[] suffixsum = new int[nums.Length];
+        suffixsum[0] = nums[^1];
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            prevsum[i] = nums[i] + prevsum[i - 1];
+        }
+
+        for (int i = nums.Length - 2, j = 1; i >= 0; i--, j++)
+        {
+            suffixsum[j] = nums[i] + suffixsum[j - 1];
+        }
+
+        int length = nums.Length;
+        for (int i = 0, j = length - 2; i < length - 1; i++, j--)
+        {
+            int sum = prevsum[i] - suffixsum[j];
+            if ((sum & 1) == 0)
+            {
+                ++result;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 矩阵中的蛇
     public int FinalPositionOfSnake(int n, IList<string> commands)
     {
@@ -84,33 +155,33 @@ public class LeetCodeSample
     #endregion
 
     #region 求出出现两次数字的 XOR 值
-    public int DuplicateNumbersXOR(int[] nums)
-    {
-        int result = 0;
-        Dictionary<int, int> frequency = new Dictionary<int, int>();
+    // public int DuplicateNumbersXOR(int[] nums)
+    // {
+    //     int result = 0;
+    //     Dictionary<int, int> frequency = new Dictionary<int, int>();
 
-        foreach (var num in nums)
-        {
-            if (frequency.ContainsKey(num))
-            {
-                frequency[num]++;
-            }
-            else
-            {
-                frequency[num] = 1;
-            }
-        }
+    //     foreach (var num in nums)
+    //     {
+    //         if (frequency.ContainsKey(num))
+    //         {
+    //             frequency[num]++;
+    //         }
+    //         else
+    //         {
+    //             frequency[num] = 1;
+    //         }
+    //     }
 
-        foreach (var kvp in frequency)
-        {
-            if (kvp.Value == 2)
-            {
-                result ^= kvp.Key;
-            }
-        }
+    //     foreach (var kvp in frequency)
+    //     {
+    //         if (kvp.Value == 2)
+    //         {
+    //             result ^= kvp.Key;
+    //         }
+    //     }
 
-        return result;
-    }
+    //     return result;
+    // }
     #endregion
 
     #region 构造最小位运算数组 I
