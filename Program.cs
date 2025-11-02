@@ -328,14 +328,45 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 求出出现两次数字的 XOR 值
-void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
-{
-    int res = leetCodeSample.DuplicateNumbersXOR(nums);
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
-}
+// void TestDuplicateNumbersXOR(int[] nums, string label, int expected)
+// {
+//     int res = leetCodeSample.DuplicateNumbersXOR(nums);
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}] -> {res} (期望={expected})");
+// }
 
-TestDuplicateNumbersXOR(new[] { 10,18,7,10,18 }, "DuplicateNumbersXOR 示例4", 24);
-TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
-TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
-TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
+// TestDuplicateNumbersXOR(new[] { 10,18,7,10,18 }, "DuplicateNumbersXOR 示例4", 24);
+// TestDuplicateNumbersXOR(new[] { 1, 2, 1, 3 }, "DuplicateNumbersXOR 示例1", 1);
+// TestDuplicateNumbersXOR(new[] { 1, 2, 3 }, "DuplicateNumbersXOR 示例2", 0);
+// TestDuplicateNumbersXOR(new[] { 1, 2, 2, 1 }, "DuplicateNumbersXOR 示例3", 3);
+#endregion
+
+#region NeighborSum 测试
+// void TestNeighborSum(int[][] grid, int value1, int value2, string label1, string label2, int expAdj, int expAdj2, int expDiag1, int expDiag2)
+// {
+//     var helper = new NeighborSum(grid);
+//     //Console.WriteLine($"{label1} AdjacentSum({value1}) -> {helper.AdjacentSum(value1)} (期望={expAdj})");
+//     //Console.WriteLine($"{label1} AdjacentSum({value2}) -> {helper.AdjacentSum(value2)} (期望={expAdj2})");
+//     Console.WriteLine($"{label1} DiagonalSum({value2}) -> {helper.DiagonalSum(value2)} (期望={expDiag1})");
+//     Console.WriteLine($"{label1} DiagonalSum({value1}) -> {helper.DiagonalSum(value1)} (期望={expDiag2})");
+// }
+
+// TestNeighborSum(
+//     new[]
+//     {
+//         new[] { 0, 1, 2 },
+//         new[] { 3, 4, 5 },
+//         new[] { 6, 7, 8 }
+//     },
+//     1, 4, "示例1", "示例1", 6, 16, 16, 4);
+
+// var grid2 = new[]
+// {
+//     new[] { 1, 2, 0, 3 },
+//     new[] { 4, 7, 15, 6 },
+//     new[] { 8, 9, 10, 11 },
+//     new[] { 12, 13, 14, 5 }
+// };
+// var helper2 = new NeighborSum(grid2);
+// Console.WriteLine($"示例2 AdjacentSum(15) -> {helper2.AdjacentSum(15)} (期望=23)");
+// Console.WriteLine($"示例2 DiagonalSum(9) -> {helper2.DiagonalSum(9)} (期望=45)");
 #endregion
