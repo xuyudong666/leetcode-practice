@@ -370,3 +370,19 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 // Console.WriteLine($"示例2 AdjacentSum(15) -> {helper2.AdjacentSum(15)} (期望=23)");
 // Console.WriteLine($"示例2 DiagonalSum(9) -> {helper2.DiagonalSum(9)} (期望=45)");
 #endregion
+
+#region 使数组的值全部为 K 的最少操作次数
+void TestMinOperations(int[] nums, int k, string label, int expected)
+{
+    var res = leetCodeSample.MinOperations(nums, k);
+    bool pass = res == expected;
+    Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+    Console.ResetColor();
+}
+
+TestMinOperations(new[] { 5, 2, 5, 4, 5 }, 2, "MinOperations 示例1", 2);
+TestMinOperations(new[] { 2, 1, 2 }, 2, "MinOperations 示例2", -1);
+TestMinOperations(new[] { 9, 7, 5, 3 }, 1, "MinOperations 示例3", 4);
+#endregion

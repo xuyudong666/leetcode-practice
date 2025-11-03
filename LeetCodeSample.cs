@@ -6,6 +6,38 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 使数组的值全部为 K 的最少操作次数
+    public int MinOperations(int[] nums, int k)
+    {
+        int minValue = int.MaxValue;
+
+        HashSet<int> values = [];
+
+        foreach (var num in nums)
+        {
+            if (num < minValue)
+            {
+                minValue = num;
+            }
+
+            values.Add(num);
+        }
+
+        if (k > minValue)
+        {
+            return -1;
+        }
+        else if (k == minValue)
+        {
+            return values.Count - 1;
+        }
+        else
+        {
+            return values.Count;
+        } 
+    }
+    #endregion
+
     #region 求出出现两次数字的 XOR 值
     public int DuplicateNumbersXOR(int[] nums)
     {
@@ -552,20 +584,20 @@ public class LeetCodeSample
         return result;
     }
 
-    public int MinOperations(int[] nums, int k)
-    {
-        int max = 0;
+    // public int MinOperations(int[] nums, int k)
+    // {
+    //     int max = 0;
 
-        foreach (var num in nums)
-        {
-            if (num > max)
-            {
-                max = num;
-            }
-        }
+    //     foreach (var num in nums)
+    //     {
+    //         if (num > max)
+    //         {
+    //             max = num;
+    //         }
+    //     }
 
-        return max % k;
-    }
+    //     return max % k;
+    // }
 
     public int SubarraySum(int[] nums)
     {
