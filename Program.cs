@@ -388,16 +388,57 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 求出加密整数的和
-void TestSumOfEncryptedInt(int[] nums, string label, int expected)
+// void TestSumOfEncryptedInt(int[] nums, string label, int expected)
+// {
+//     var res = leetCodeSample.SumOfEncryptedInt(nums);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestSumOfEncryptedInt(new[] { 1, 2, 3 }, "SumOfEncryptedInt 示例1", 6);
+// TestSumOfEncryptedInt(new[] { 10, 21, 31 }, "SumOfEncryptedInt 示例2", 66);
+#endregion
+
+#region 跳过交替单元格的之字形遍历
+void TestZigzagTraversal(int[][] grid, string label, int[] expected)
 {
-    var res = leetCodeSample.SumOfEncryptedInt(nums);
-    bool pass = res == expected;
+    var res = leetCodeSample.ZigzagTraversal(grid);
+    bool pass = res.SequenceEqual(expected);
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
-    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+    Console.WriteLine($"{label} gridRows={grid.Length}");
+    Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestSumOfEncryptedInt(new[] { 1, 2, 3 }, "SumOfEncryptedInt 示例1", 6);
-TestSumOfEncryptedInt(new[] { 10, 21, 31 }, "SumOfEncryptedInt 示例2", 66);
+TestZigzagTraversal(
+    new[]
+    {
+        new[] { 1, 2 },
+        new[] { 3, 4 }
+    },
+    "ZigzagTraversal 示例1",
+    new[] { 1, 4 });
+
+TestZigzagTraversal(
+    new[]
+    {
+        new[] { 2, 1 },
+        new[] { 2, 1 },
+        new[] { 2, 1 }
+    },
+    "ZigzagTraversal 示例2",
+    new[] { 2, 1, 2 });
+
+TestZigzagTraversal(
+    new[]
+    {
+        new[] { 1, 2, 3 },
+        new[] { 4, 5, 6 },
+        new[] { 7, 8, 9 }
+    },
+    "ZigzagTraversal 示例3",
+    new[] { 1, 3, 5, 7, 9 });
 #endregion

@@ -6,6 +6,43 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 跳过交替单元格的之字形遍历
+    public IList<int> ZigzagTraversal(int[][] grid)
+    {
+        List<int> result = [];
+        int jump = 0;
+        for (int i = 0; i < grid.Length; i++)
+        {
+            if ((i & 1) == 0)
+            {
+                for (int j = 0 + jump; j < grid[i].Length; j += 2)
+                {
+                    result.Add(grid[i][j]);
+                }
+                if ((grid[i].Length & 1) == 0)
+                {
+                    jump = 0;
+                }
+                else
+                {
+                    jump = 1;
+                }
+            }
+            else
+            {
+                for (int j = grid[i].Length - 1 - jump; j >= 0; j -= 2)
+                {
+                    result.Add(grid[i][j]);
+                }
+
+                jump = 0;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 求出加密整数的和
     public int SumOfEncryptedInt(int[] nums)
     {
