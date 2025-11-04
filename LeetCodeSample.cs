@@ -9,32 +9,22 @@ public class LeetCodeSample
     #region 使数组的值全部为 K 的最少操作次数
     public int MinOperations(int[] nums, int k)
     {
-        int minValue = int.MaxValue;
-
         HashSet<int> values = [];
 
         foreach (var num in nums)
         {
-            if (num < minValue)
+            if (k > num)
             {
-                minValue = num;
+                return -1;
             }
 
-            values.Add(num);
+            if (num > k)
+            {
+                values.Add(num);
+            }
         }
 
-        if (k > minValue)
-        {
-            return -1;
-        }
-        else if (k == minValue)
-        {
-            return values.Count - 1;
-        }
-        else
-        {
-            return values.Count;
-        } 
+        return values.Count;
     }
     #endregion
 
