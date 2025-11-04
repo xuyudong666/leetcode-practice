@@ -372,17 +372,32 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 使数组的值全部为 K 的最少操作次数
-void TestMinOperations(int[] nums, int k, string label, int expected)
+// void TestMinOperations(int[] nums, int k, string label, int expected)
+// {
+//     var res = leetCodeSample.MinOperations(nums, k);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestMinOperations(new[] { 5, 2, 5, 4, 5 }, 2, "MinOperations 示例1", 2);
+// TestMinOperations(new[] { 2, 1, 2 }, 2, "MinOperations 示例2", -1);
+// TestMinOperations(new[] { 9, 7, 5, 3 }, 1, "MinOperations 示例3", 4);
+#endregion
+
+#region 求出加密整数的和
+void TestSumOfEncryptedInt(int[] nums, string label, int expected)
 {
-    var res = leetCodeSample.MinOperations(nums, k);
+    var res = leetCodeSample.SumOfEncryptedInt(nums);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}], k={k}");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestMinOperations(new[] { 5, 2, 5, 4, 5 }, 2, "MinOperations 示例1", 2);
-TestMinOperations(new[] { 2, 1, 2 }, 2, "MinOperations 示例2", -1);
-TestMinOperations(new[] { 9, 7, 5, 3 }, 1, "MinOperations 示例3", 4);
+TestSumOfEncryptedInt(new[] { 1, 2, 3 }, "SumOfEncryptedInt 示例1", 6);
+TestSumOfEncryptedInt(new[] { 10, 21, 31 }, "SumOfEncryptedInt 示例2", 66);
 #endregion

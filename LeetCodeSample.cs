@@ -6,6 +6,42 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 求出加密整数的和
+    public int SumOfEncryptedInt(int[] nums)
+    {
+        int result = 0;
+
+        foreach (var num in nums)
+        {
+            result += Encrypt(num);
+        }
+
+        return result;
+    }
+
+    public int Encrypt(int num)
+    {
+        int maxDigit = 0;
+        int count = 0;
+        int frequency = 1;
+
+        while (num > 0)
+        {
+            int bit = num % 10;
+            if (bit > maxDigit)
+            {
+                maxDigit = bit;
+            }
+
+            num /= 10;
+            count += frequency;
+            frequency *= 10;
+        }
+
+        return count * maxDigit;
+    }
+    #endregion
+
     #region 使数组的值全部为 K 的最少操作次数
     public int MinOperations(int[] nums, int k)
     {
