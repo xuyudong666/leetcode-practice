@@ -461,18 +461,33 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 
 
 #region 统计移除递增子数组的数目 I
-void TestIncremovableSubarrayCount(int[] nums, string label, int expected)
+// void TestIncremovableSubarrayCount(int[] nums, string label, int expected)
+// {
+//     int res = leetCodeSample.IncremovableSubarrayCount(nums);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestIncremovableSubarrayCount(new[] { 3,7,2 }, "IncremovableSubarrayCount 示例1", 4);
+// TestIncremovableSubarrayCount(new[] { 1, 2, 3, 4 }, "IncremovableSubarrayCount 示例1", 10);
+// TestIncremovableSubarrayCount(new[] { 6, 5, 7, 8 }, "IncremovableSubarrayCount 示例2", 7);
+// TestIncremovableSubarrayCount(new[] { 8, 7, 6, 6 }, "IncremovableSubarrayCount 示例3", 3);
+#endregion
+
+#region 找到频率最高的元音和辅音
+void TestMaxFreqSum(string s, string label, int expected)
 {
-    int res = leetCodeSample.IncremovableSubarrayCount(nums);
+    int res = leetCodeSample.MaxFreqSum(s);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+    Console.WriteLine($"{label} s=\"{s}\"");
     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestIncremovableSubarrayCount(new[] { 3,7,2 }, "IncremovableSubarrayCount 示例1", 4);
-TestIncremovableSubarrayCount(new[] { 1, 2, 3, 4 }, "IncremovableSubarrayCount 示例1", 10);
-TestIncremovableSubarrayCount(new[] { 6, 5, 7, 8 }, "IncremovableSubarrayCount 示例2", 7);
-TestIncremovableSubarrayCount(new[] { 8, 7, 6, 6 }, "IncremovableSubarrayCount 示例3", 3);
+TestMaxFreqSum("successes", "MaxFreqSum 示例1", 6);
+TestMaxFreqSum("aeiaeia", "MaxFreqSum 示例2", 3);
 #endregion

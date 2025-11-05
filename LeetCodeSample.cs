@@ -6,6 +6,62 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 找到频率最高的元音和辅音
+    public int MaxFreqSum(string s)
+    {
+        Dictionary<char, int> vowelDictionary = [];
+        Dictionary<char, int> consonantDictionary = [];
+
+        char[] vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        foreach (var c in s)
+        {
+            if (vowels.Contains(c))
+            {
+                if (!vowelDictionary.TryGetValue(c, out var count))
+                {
+                    vowelDictionary[c] = 1;
+                }
+                {
+                    vowelDictionary[c] = count + 1;
+                }
+            }
+            else
+            {
+                if (!consonantDictionary.TryGetValue(c, out var count))
+                {
+                    consonantDictionary[c] = 1;
+                }
+                else
+                {
+                    consonantDictionary[c] = count + 1;
+                }
+            }
+        }
+
+        int vowelMax = 0;
+        int consonantMax = 0;
+
+        foreach (var kv in vowelDictionary)
+        {
+            if (vowelMax < kv.Value)
+            {
+                vowelMax = kv.Value;
+            }
+        }
+
+        foreach (var kv in consonantDictionary)
+        {
+            if (consonantMax < kv.Value)
+            {
+                consonantMax = kv.Value;
+            }
+        }
+
+        return vowelMax + consonantMax;
+    }
+    #endregion
+
     #region  找出缺失的元素
     public IList<int> FindMissingElements(int[] nums)
     {
