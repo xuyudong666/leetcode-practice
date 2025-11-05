@@ -6,6 +6,80 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region  找出缺失的元素
+    public IList<int> FindMissingElements(int[] nums)
+    {
+        List<int> result = [];
+        HashSet<int> values = [];
+        int min = int.MaxValue;
+        int max = int.MinValue;
+
+        foreach (var num in nums)
+        {
+            values.Add(num);
+
+            max = Math.Max(max, num);
+
+            min = Math.Min(min, num);
+        }
+
+        for (int i = min; i < max; i++)
+        {
+            if (!values.Contains(i))
+            {
+                result.Add(i);
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
+    #region 统计移除递增子数组的数目 I
+    public int IncremovableSubarrayCount(int[] nums)
+    {
+        int result = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            for (int j = i; j < nums.Length; j++)
+            {
+                bool isIncreasing = true;
+                for (int left = 0; left < i - 1; left++)
+                {
+                    if (nums[left] >= nums[left + 1])
+                    {
+                        isIncreasing = false;
+                        break;
+                    }
+                }
+
+                if (!isIncreasing)
+                    continue;
+
+                for (int right = j + 1; right < nums.Length - 1; right++)
+                {
+                    if (nums[right] >= nums[right + 1])
+                    {
+                        isIncreasing = false;
+                        break;
+                    }
+                }
+
+                if (isIncreasing)
+                {
+                    if (i != 0 && j != nums.Length - 1 && nums[i - 1] >= nums[j + 1])
+                    {
+                        continue;
+                    }
+                    ++result;
+                }
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 跳过交替单元格的之字形遍历
     public IList<int> ZigzagTraversal(int[][] grid)
     {

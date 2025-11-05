@@ -403,42 +403,76 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 跳过交替单元格的之字形遍历
-void TestZigzagTraversal(int[][] grid, string label, int[] expected)
+// void TestZigzagTraversal(int[][] grid, string label, int[] expected)
+// {
+//     var res = leetCodeSample.ZigzagTraversal(grid);
+//     bool pass = res.SequenceEqual(expected);
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} gridRows={grid.Length}");
+//     Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestZigzagTraversal(
+//     new[]
+//     {
+//         new[] { 1, 2 },
+//         new[] { 3, 4 }
+//     },
+//     "ZigzagTraversal 示例1",
+//     new[] { 1, 4 });
+
+// TestZigzagTraversal(
+//     new[]
+//     {
+//         new[] { 2, 1 },
+//         new[] { 2, 1 },
+//         new[] { 2, 1 }
+//     },
+//     "ZigzagTraversal 示例2",
+//     new[] { 2, 1, 2 });
+
+// TestZigzagTraversal(
+//     new[]
+//     {
+//         new[] { 1, 2, 3 },
+//         new[] { 4, 5, 6 },
+//         new[] { 7, 8, 9 }
+//     },
+//     "ZigzagTraversal 示例3",
+//     new[] { 1, 3, 5, 7, 9 });
+#endregion
+
+#region 找出缺失的元素
+// void TestFindMissingElements(int[] nums, string label, int[] expected)
+// {
+//     var res = leetCodeSample.FindMissingElements(nums).ToArray();
+//     bool pass = res.SequenceEqual(expected);
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+//     Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestFindMissingElements(new[] { 1, 4, 2, 5 }, "FindMissingElements 示例1", new[] { 3 });
+// TestFindMissingElements(new[] { 7, 8, 6, 9 }, "FindMissingElements 示例2", Array.Empty<int>());
+// TestFindMissingElements(new[] { 5, 1 }, "FindMissingElements 示例3", new[] { 2, 3, 4 });
+#endregion
+
+
+#region 统计移除递增子数组的数目 I
+void TestIncremovableSubarrayCount(int[] nums, string label, int expected)
 {
-    var res = leetCodeSample.ZigzagTraversal(grid);
-    bool pass = res.SequenceEqual(expected);
+    int res = leetCodeSample.IncremovableSubarrayCount(nums);
+    bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} gridRows={grid.Length}");
-    Console.WriteLine($"  结果=[{string.Join(",", res)}], 期望=[{string.Join(",", expected)}] -> {(pass ? "通过" : "失败")}");
+    Console.WriteLine($"{label} nums=[{string.Join(",", nums)}]");
+    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestZigzagTraversal(
-    new[]
-    {
-        new[] { 1, 2 },
-        new[] { 3, 4 }
-    },
-    "ZigzagTraversal 示例1",
-    new[] { 1, 4 });
-
-TestZigzagTraversal(
-    new[]
-    {
-        new[] { 2, 1 },
-        new[] { 2, 1 },
-        new[] { 2, 1 }
-    },
-    "ZigzagTraversal 示例2",
-    new[] { 2, 1, 2 });
-
-TestZigzagTraversal(
-    new[]
-    {
-        new[] { 1, 2, 3 },
-        new[] { 4, 5, 6 },
-        new[] { 7, 8, 9 }
-    },
-    "ZigzagTraversal 示例3",
-    new[] { 1, 3, 5, 7, 9 });
+TestIncremovableSubarrayCount(new[] { 3,7,2 }, "IncremovableSubarrayCount 示例1", 4);
+TestIncremovableSubarrayCount(new[] { 1, 2, 3, 4 }, "IncremovableSubarrayCount 示例1", 10);
+TestIncremovableSubarrayCount(new[] { 6, 5, 7, 8 }, "IncremovableSubarrayCount 示例2", 7);
+TestIncremovableSubarrayCount(new[] { 8, 7, 6, 6 }, "IncremovableSubarrayCount 示例3", 3);
 #endregion
