@@ -6,6 +6,79 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 找到字符串中合法的相邻数字
+    public string FindValidPair(string s)
+    {
+        Dictionary<char, int> cDict = [];
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (cDict.TryGetValue(s[i], out int value))
+            {
+                cDict[s[i]] = ++value;
+            }
+            else
+            {
+                cDict[s[i]] = 1;
+            }
+        }
+
+        for (int i = 0; i < s.Length - 1; i++)
+        {
+            int next = i + 1;
+            if (s[i] != s[next] && (s[i] - '0') == cDict[s[i]] && (s[next] - '0') == cDict[s[next]])
+            {
+                return new string([s[i], s[next]]);
+            }
+        }
+        return string.Empty;
+    }
+    #endregion
+
+    #region 字符串及其反转中是否存在同一子字符串
+    public bool IsSubstringPresent(string s)
+    {
+        HashSet<string> strings = [];
+
+        for (int i = 0; i < s.Length - 1; i++)
+        {
+            strings.Add(new string([s[i], s[i + 1]]));
+        }
+
+        for (int i = s.Length - 1; i > 0; i--)
+        {
+            if (strings.Contains(new string([s[i], s[i - 1]])))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    #endregion
+
+    #region 两个字符串的排列差
+    public int FindPermutationDifference(string s, string t)
+    {
+        Dictionary<char, int> cDict = [];
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            cDict[s[i]] = i;
+        }
+
+        int result = 0;
+
+        for (int i = 0; i < t.Length; i++)
+        {
+            var index = cDict[t[i]];
+            result += Math.Abs(index - i);
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 找到频率最高的元音和辅音
     public int MaxFreqSum(string s)
     {

@@ -478,16 +478,64 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 找到频率最高的元音和辅音
-void TestMaxFreqSum(string s, string label, int expected)
+// void TestMaxFreqSum(string s, string label, int expected)
+// {
+//     int res = leetCodeSample.MaxFreqSum(s);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} s=\"{s}\"");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestMaxFreqSum("successes", "MaxFreqSum 示例1", 6);
+// TestMaxFreqSum("aeiaeia", "MaxFreqSum 示例2", 3);
+#endregion
+
+#region 两个字符串的排列差
+// void TestFindPermutationDifference(string s, string t, string label, int expected)
+// {
+//     int res = leetCodeSample.FindPermutationDifference(s, t);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} s=\"{s}\", t=\"{t}\"");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestFindPermutationDifference("rwohu", "rwuoh", "FindPermutationDifference 示例1", 4);
+// //TestFindPermutationDifference("abc", "bac", "FindPermutationDifference 示例1", 2);
+// //TestFindPermutationDifference("abcde", "edbac", "FindPermutationDifference 示例2", 12);
+#endregion
+
+#region 字符串及其反转中是否存在同一子字符串
+// void TestIsSubstringPresent(string s, string label, bool expected)
+// {
+//     bool res = leetCodeSample.IsSubstringPresent(s);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} s=\"{s}\"");
+//     Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestIsSubstringPresent("leetcode", "IsSubstringPresent 示例1", true);
+// TestIsSubstringPresent("abcba", "IsSubstringPresent 示例2", true);
+// TestIsSubstringPresent("abcd", "IsSubstringPresent 示例3", false);
+#endregion
+
+#region 找到字符串中合法的相邻数字
+void TestFindValidPair(string s, string label, string expected)
 {
-    int res = leetCodeSample.MaxFreqSum(s);
+    string res = leetCodeSample.FindValidPair(s);
     bool pass = res == expected;
     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
     Console.WriteLine($"{label} s=\"{s}\"");
-    Console.WriteLine($"  结果={res}, 期望={expected} -> {(pass ? "通过" : "失败")}");
+    Console.WriteLine($"  结果=\"{res}\", 期望=\"{expected}\" -> {(pass ? "通过" : "失败")}");
     Console.ResetColor();
 }
 
-TestMaxFreqSum("successes", "MaxFreqSum 示例1", 6);
-TestMaxFreqSum("aeiaeia", "MaxFreqSum 示例2", 3);
+TestFindValidPair("2523533", "FindValidPair 示例1", "23");
+TestFindValidPair("221", "FindValidPair 示例2", "21");
+TestFindValidPair("22", "FindValidPair 示例3", string.Empty);
 #endregion
