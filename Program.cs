@@ -525,17 +525,40 @@ LeetCodeSample leetCodeSample = new LeetCodeSample();
 #endregion
 
 #region 找到字符串中合法的相邻数字
-void TestFindValidPair(string s, string label, string expected)
+// void TestFindValidPair(string s, string label, string expected)
+// {
+//     string res = leetCodeSample.FindValidPair(s);
+//     bool pass = res == expected;
+//     Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
+//     Console.WriteLine($"{label} s=\"{s}\"");
+//     Console.WriteLine($"  结果=\"{res}\", 期望=\"{expected}\" -> {(pass ? "通过" : "失败")}");
+//     Console.ResetColor();
+// }
+
+// TestFindValidPair("2523533", "FindValidPair 示例1", "23");
+// TestFindValidPair("221", "FindValidPair 示例2", "21");
+// TestFindValidPair("22", "FindValidPair 示例3", string.Empty);
+#endregion
+
+#region 统计特殊字母的数量 I
+// void TestNumberOfSpecialChars(string word, string label, int expected)
+// {
+//     int res = leetCodeSample.NumberOfSpecialChars(word);
+//     Console.WriteLine($"{label} word=\"{word}\" -> {res} (期望={expected})");
+// }
+
+// TestNumberOfSpecialChars("aaAbcBC", "NumberOfSpecialChars 示例1", 3);
+// TestNumberOfSpecialChars("abc", "NumberOfSpecialChars 示例2", 0);
+// TestNumberOfSpecialChars("abBCab", "NumberOfSpecialChars 示例3", 1);
+#endregion
+
+#region 出现频率最低的数字
+void TestGetLeastFrequentDigit(int n, string label, int expected)
 {
-    string res = leetCodeSample.FindValidPair(s);
-    bool pass = res == expected;
-    Console.ForegroundColor = pass ? ConsoleColor.Green : ConsoleColor.Red;
-    Console.WriteLine($"{label} s=\"{s}\"");
-    Console.WriteLine($"  结果=\"{res}\", 期望=\"{expected}\" -> {(pass ? "通过" : "失败")}");
-    Console.ResetColor();
+    int res = leetCodeSample.GetLeastFrequentDigit(n);
+    Console.WriteLine($"{label} n={n} -> {res} (期望={expected})");
 }
 
-TestFindValidPair("2523533", "FindValidPair 示例1", "23");
-TestFindValidPair("221", "FindValidPair 示例2", "21");
-TestFindValidPair("22", "FindValidPair 示例3", string.Empty);
+TestGetLeastFrequentDigit(1553322, "GetLeastFrequentDigit 示例1", 1);
+TestGetLeastFrequentDigit(723344511, "GetLeastFrequentDigit 示例2", 2);
 #endregion

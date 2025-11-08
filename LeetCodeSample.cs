@@ -6,6 +6,72 @@ namespace leetcode;
 public class LeetCodeSample
 {
 
+    #region 出现频率最低的数字
+    public int GetLeastFrequentDigit(int n)
+    {
+        Dictionary<int, int> pairs = [];
+        while (n > 0)
+        {
+            var num = n % 10;
+            if (pairs.TryGetValue(num, out var count))
+            {
+                pairs[num] = count + 1;
+            }
+            else
+            {
+                pairs[num] = 1;
+            }
+
+            n /= 10;
+        }
+
+        KeyValuePair<int, int> p = new(int.MaxValue, int.MaxValue);
+        foreach (var pair in pairs)
+        {
+            if (pair.Value < p.Value)
+            {
+                p = pair;
+            }
+
+            if (pair.Value == p.Value && pair.Key < p.Key)
+            {
+                p = pair;
+            }
+        }
+
+        return p.Key;
+    }
+    #endregion
+
+    #region 统计特殊字母的数量 I
+    public int NumberOfSpecialChars(string word)
+    {
+        int result = 0;
+
+        HashSet<char> chars = [];
+
+        for (int i = 0; i < word.Length; i++)
+        {
+            if (chars.Contains(word[i]))
+            {
+                continue;
+            }
+            else
+            {
+                chars.Add(word[i]);
+            }
+
+
+            if (chars.Contains((char)(word[i] - ' ')) || chars.Contains((char)(word[i] + ' ')))
+            {
+                ++result;
+            }
+        }
+
+        return result;
+    }
+    #endregion
+
     #region 找到字符串中合法的相邻数字
     public string FindValidPair(string s)
     {
